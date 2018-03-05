@@ -1,0 +1,65 @@
+<!--
+  Generated template for the RegisterPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Bus Locator</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <form #form = "ngForm" (ngSubmit)="register(form)">
+        <ion-item>
+          <ion-label fixed>
+            Email
+          </ion-label>
+          <ion-input name = "email" type="email" ngModel required></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label fixed>
+              Password
+            </ion-label>
+            <ion-input name = "password" type="password" ngModel required></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label>
+              Person
+            </ion-label>
+            <ion-select ngModel name="person">
+              <ion-option value="student">
+                Student
+              </ion-option>
+              <ion-option value ="driver">
+                  Driver
+                </ion-option>
+            </ion-select>
+          </ion-item>
+          <div  *ngIf="form.value.person == 'driver'">
+          <ion-item>
+              <ion-label fixed>
+                Name
+              </ion-label>
+              <ion-input name = "name" type="text" ngModel required></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label fixed>
+                  Age
+                </ion-label>
+                <ion-input name = "age" type="text" ngModel required></ion-input>
+              </ion-item>
+              <ion-item>
+                  <ion-label fixed>
+                    Indentity No
+                  </ion-label>
+                  <ion-input name = "idno" type="text" ngModel required></ion-input>
+                </ion-item>
+                </div>
+          <button ion-button block [disabled]="!form.valid"> Register </button>
+      </form>
+</ion-content>

@@ -1,0 +1,70 @@
+<!--
+  Generated template for the DriverPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Bus Locator</ion-title>
+   <ion-buttons end><button icon-only ion-button (click)="logout()"> <ion-icon  name="log-out"></ion-icon></button></ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+<p>Welcome {{ name }}</p>
+<p>Choose which bus number you are going to ride</p>
+<form #form = "ngForm" (ngSubmit)="drive(form)">
+  <ion-item>
+    <ion-label fixed>
+      Start time
+    </ion-label>
+    <ion-datetime displayFormat="h:mm A" pickerFormat="h mm A" ngModel name="starttime"></ion-datetime>
+  </ion-item>
+    <ion-item>
+      <ion-label>
+        Bus No
+      </ion-label>
+      <ion-select ngModel name="busno">
+        <ion-option value="3">
+          3
+        </ion-option>
+        <ion-option value ="4">
+           4
+          </ion-option>
+          <ion-option value ="10">
+            10
+           </ion-option>
+           <ion-option value ="12">
+            12
+           </ion-option>
+           <ion-option value ="18">
+            18
+           </ion-option>
+           <ion-option value ="20">
+            20
+           </ion-option>
+           <ion-option value ="21">
+            21
+           </ion-option>
+           <ion-option value ="22">
+            22
+           </ion-option>
+           <ion-option value ="23">
+            23
+           </ion-option>
+           <ion-option value ="24">
+            24
+           </ion-option>
+           <ion-option value ="34">
+            34
+           </ion-option>
+         
+      </ion-select>
+    </ion-item>
+    <button ion-button block [disabled]="!form.valid">Start Driving</button>
+</form>
+</ion-content>
